@@ -1,0 +1,23 @@
+import HeroBanner from "./../components/HeroBanner/HeroBanner";
+import FeatureStrip from "./../components/FeatureStrip/FeatureStrip";
+import HoneyProductsHome from "./../components/HoneyProducts/HoneyProductsHome";
+import WhyChooseMotherland from "./../components/WhyChooseMotherland/WhyChooseMotherland";
+import Certifications from "./../components/Certifications/Certifications";
+import RegularVsMotherland from "./../components/RegularVsMotherland/RegularVsMotherland";
+import WelnessInEveryDrop from "./../components/WellnessInDrop/WelnessInEveryDrop";
+import WhatOurCustomerSays from "./../components/WhatCustomerSays/WhatOurCustomerSays";
+
+export default function Home() {
+  return (
+    <>
+      <HeroBanner />
+      <FeatureStrip />
+      <HoneyProductsHome />
+      <WhyChooseMotherland />
+      <Certifications />
+      <RegularVsMotherland />
+      <WelnessInEveryDrop />
+      <WhatOurCustomerSays />
+    </>
+  );
+}

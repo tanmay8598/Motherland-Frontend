@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import { useEffect, useState } from "react";
+
 import Image from "next/image";
 
 const certifications = [
@@ -11,15 +12,22 @@ const certifications = [
 ];
 
 const Certifications = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
     <section className="w-full bg-white py-5 flex flex-col items-center font-figtree">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Certifications</h2>
 
       <div
-        className="flex overflow-x-auto px-2 scrollbar-hide w-full"
+        className="flex overflow-x-auto animate-marquee px-2 scrollbar-hide w-full"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {certifications.map((item, index) => (
+        {[...certifications, ...certifications].map((item, index) => (
           <div
             key={index}
             className="min-w-[140px] shrink-0 flex items-center justify-center scroll-snap-align-center"
@@ -34,6 +42,21 @@ const Certifications = () => {
           </div>
         ))}
       </div>
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          display: flex;
+          width: max-content;
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

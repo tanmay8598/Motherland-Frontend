@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
+import { animate } from "framer-motion";
 
 import CustomerReviewCard from "./../Cards/CustomerReviewCard";
 
@@ -43,12 +44,21 @@ function WhatOurCustomerSays() {
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;
-    const { scrollLeft, clientWidth } = scrollRef.current;
-    const scrollTo =
-      direction === "left"
-        ? scrollLeft - clientWidth
-        : scrollLeft + clientWidth;
-    scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+
+    const start = scrollRef.current.scrollLeft;
+    const cardWidth = scrollRef.current.firstChild?.offsetWidth || 300;
+    const target =
+      direction === "left" ? start - cardWidth - 24 : start + cardWidth + 24;
+
+    const controls = animate(start, target, {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (value) => {
+        scrollRef.current.scrollLeft = value;
+      },
+    });
+
+    return () => controls.stop();
   };
 
   return (
@@ -73,7 +83,8 @@ function WhatOurCustomerSays() {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6"
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory"
+          style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
         >
           {reviews.map((item, i) => (
             <CustomerReviewCard key={i} {...item} />

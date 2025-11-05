@@ -1,8 +1,7 @@
 "use client";
-
-import React, { useRef } from "react";
-
+import React, { useRef, useState, useEffect } from "react";
 import WellnessDropCard from "./../Cards/WellnessDropCard";
+import CustomProgressBar from "./../ProgressBar/CustomProgressbar";
 
 const cards = [
   {
@@ -27,16 +26,27 @@ const cards = [
 
 const WelnessInEveryDrop = () => {
   const scrollRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(20);
 
-  const scroll = (direction) => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, clientWidth } = scrollRef.current;
-    const scrollTo =
-      direction === "left"
-        ? scrollLeft - clientWidth
-        : scrollLeft + clientWidth;
-    scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+
+      let progress = (scrollLeft / (scrollWidth - clientWidth)) * 100 || 0;
+
+      progress = Math.max(progress, 20);
+
+      progress = Math.min(progress, 100);
+
+      setScrollProgress(progress);
+    };
+
+    const container = scrollRef.current;
+    if (container) container.addEventListener("scroll", handleScroll);
+    return () =>
+      container && container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section className="flex flex-col font-figtree items-center py-10 bg-white">
@@ -49,16 +59,9 @@ const WelnessInEveryDrop = () => {
       </p>
 
       <div className="relative w-full mt-10">
-        <button
-          onClick={() => scroll("left")}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow-md hover:bg-gray-100"
-        >
-          ◀
-        </button>
-
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide "
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory px-4"
         >
           {cards.map((card, i) => (
             <WellnessDropCard
@@ -69,14 +72,9 @@ const WelnessInEveryDrop = () => {
             />
           ))}
         </div>
-
-        <button
-          onClick={() => scroll("right")}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white border border-gray-300 rounded-full p-2 shadow-md hover:bg-gray-100"
-        >
-          ▶
-        </button>
       </div>
+
+      {cards.length > 1 && <CustomProgressBar progress={scrollProgress} />}
     </section>
   );
 };

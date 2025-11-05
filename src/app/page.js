@@ -6,6 +6,8 @@ import Certifications from "./../components/Certifications/Certifications";
 import RegularVsMotherland from "./../components/RegularVsMotherland/RegularVsMotherland";
 import WelnessInEveryDrop from "./../components/WellnessInDrop/WelnessInEveryDrop";
 import WhatOurCustomerSays from "./../components/WhatCustomerSays/WhatOurCustomerSays";
+import UserGeneratedContent from "./../components/UserGeneratedContent/UserGeneratedContent";
+import BeyondSweetness from "./../components/BeyondSweetness/BeyondSweetness";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       <RegularVsMotherland />
       <WelnessInEveryDrop />
       <WhatOurCustomerSays />
+      <UserGeneratedContent />
+      <BeyondSweetness />
     </>
   );
 }

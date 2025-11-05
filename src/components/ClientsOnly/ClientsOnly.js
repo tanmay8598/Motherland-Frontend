@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import MobileNavbar from "./../Navbar/Navbar";
 import ScrollToTop from "./../ScrollToTop/ScrollToTop";
+import Footer from "./../Footer/Footer";
 
 const ClientOnly = ({ children }) => {
   const [user, setUser] = useState();
@@ -29,7 +30,7 @@ const ClientOnly = ({ children }) => {
 
         <ScrollToTop />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

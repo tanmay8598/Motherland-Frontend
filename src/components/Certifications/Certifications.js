@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
 
 const certifications = [
@@ -11,37 +10,37 @@ const certifications = [
   { src: "/certificationImages/isoold.png", alt: "ISO 9001:2015" },
 ];
 
-const Certifications = () => {
+export default function Certifications() {
   const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  useEffect(() => setMounted(true), []);
   if (!mounted) return null;
-  return (
-    <section className="w-full bg-white py-5 flex flex-col items-center font-figtree">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Certifications</h2>
 
-      <div
-        className="flex overflow-x-auto animate-marquee px-2 scrollbar-hide w-full"
-        style={{ scrollSnapType: "x mandatory" }}
-      >
-        {[...certifications, ...certifications].map((item, index) => (
-          <div
-            key={index}
-            className="min-w-[140px] shrink-0 flex items-center justify-center scroll-snap-align-center"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={94}
-              height={94}
-              className="object-contain"
-            />
-          </div>
-        ))}
+  return (
+    <section className="w-full bg-white py-5 flex flex-col items-center font-figtree overflow-hidden">
+      <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">
+        Certifications
+      </h2>
+
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-max animate-marquee">
+          {/* Duplicate ×2 only  */}
+          {[...certifications, ...certifications].map((item, index) => (
+            <div
+              key={index}
+              className="w-[120px] lg:w-[180px] flex items-center justify-center mx-4"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={94}
+                height={94}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
       <style jsx>{`
         @keyframes marquee {
           0% {
@@ -52,13 +51,9 @@ const Certifications = () => {
           }
         }
         .animate-marquee {
-          display: flex;
-          width: max-content;
-          animation: marquee 20s linear infinite;
+          animation: marquee 22s linear infinite;
         }
       `}</style>
     </section>
   );
-};
-
-export default Certifications;
+}

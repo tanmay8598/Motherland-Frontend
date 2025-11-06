@@ -39,7 +39,7 @@ const reviews = [
   },
 ];
 
-function WhatOurCustomerSays() {
+const WhatOurCustomerSays = () => {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -62,12 +62,12 @@ function WhatOurCustomerSays() {
   };
 
   return (
-    <section className="flex flex-col font-figtree items-center py-10 bg-[#FFF5E6]">
+    <section className="flex flex-col font-figtree items-center  py-10 bg-[#FFF5E6]">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-950 text-center">
         What Our Customers Say
       </h2>
 
-      <div className="relative w-full mt-10">
+      <div className="relative w-full  mt-10">
         <button
           onClick={() => scroll("left")}
           className="flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2   rounded-full   z-10"
@@ -83,7 +83,7 @@ function WhatOurCustomerSays() {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory"
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory justify-center"
           style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
         >
           {reviews.map((item, i) => (
@@ -106,6 +106,6 @@ function WhatOurCustomerSays() {
       </div>
     </section>
   );
-}
+};
 
 export default WhatOurCustomerSays;

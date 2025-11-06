@@ -72,13 +72,13 @@ const HoneyProductsHome = () => {
         Now in your home
       </p>
 
-      <div className="mt-6 flex flex-wrap justify-center gap-5">
+      <div className="mt-6 flex flex-wrap justify-center gap-4 lg:gap-6">
         {honeyItems.map((item, index) => (
           <HoneyCard key={index} {...item} />
         ))}
       </div>
 
-      <div className="flex justify-center mt-5 gap-2">
+      <div className="flex justify-center mt-5 gap-2 ">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <div
             key={index}
@@ -90,7 +90,7 @@ const HoneyProductsHome = () => {
         ))}
       </div>
 
-      <button className="mt-6 w-[calc(100%-2rem)] mx-auto py-2 border border-[#F5C056] bg-[#FFF6E5] rounded-full text-gray-900 font-medium hover:bg-[#FFE7CB] transition">
+      <button className="mt-6 w-[calc(100%-2rem)] lg:w-md mx-auto py-2 border border-[#F5C056] bg-[#FFF6E5] rounded-full text-gray-900 font-medium hover:bg-[#FFE7CB] transition">
         Shop All
       </button>
     </section>

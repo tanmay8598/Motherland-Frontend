@@ -5,10 +5,10 @@ import React from "react";
 const RegularVsMotherland = () => {
   return (
     <section className="w-full flex flex-col items-center py-5 font-figtree">
-      <div className="relative w-full bg-[#FFE4B5] max-w-5xl flex flex-row items-stretch rounded-xl overflow-hidden">
+      <div className="relative w-full lg:px-10 bg-[#FFE4B5]  flex flex-row items-stretch  overflow-hidden">
         <div className="w-1/2 px-4 py-8 flex flex-col justify-start relative">
-          <div className="bg-white  rounded-md py-2 text-center md:text-left">
-            <h3 className="text-sm px-4 md:text-xl font-bold text-[#0F8643] whitespace-nowrap">
+          <div className="w-fit bg-white rounded-md py-1.5 px-3">
+            <h3 className="text-sm md:text-xl font-bold text-[#0F8643] whitespace-nowrap">
               Motherland Honey
             </h3>
           </div>
@@ -37,20 +37,20 @@ const RegularVsMotherland = () => {
           </ul>
         </div>
 
-        <div className="relative w-[200px] flex justify-center items-center">
+        <div className="relative w-[200px] lg:w-[363px] flex justify-center items-center">
           <div className="absolute top-0 bottom-0 w-0.5 bg-white"></div>
           <Image
             src="/images/comparehoney.png"
             alt="Honey Center"
             width={114}
             height={174}
-            className="z-10 object-contain"
+            className="z-10 object-contain w-[150px] h-[174px] lg:w-[200px] lg:h-[300px]"
           />
         </div>
 
         <div className="w-1/2 px-6 py-8 flex flex-col justify-start relative">
-          <div className="bg-white rounded-md py-2 text-center md:text-left ">
-            <h3 className="text-sm px-2 md:text-xl font-bold text-[#BA2D2D] whitespace-nowrap">
+          <div className="w-fit bg-white rounded-md py-1.5 px-3">
+            <h3 className="text-sm md:text-xl font-bold text-[#BA2D2D] whitespace-nowrap">
               Regular Honey
             </h3>
           </div>

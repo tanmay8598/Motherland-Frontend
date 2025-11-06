@@ -25,7 +25,7 @@ const statsData = [
   },
 ];
 
-export default function BeyondSweetness() {
+const BeyondSweetness = () => {
   const [counts, setCounts] = useState(statsData.map(() => 0));
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -77,7 +77,7 @@ export default function BeyondSweetness() {
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col items-center text-center font-figtree bg-white pt-5"
+      className="flex flex-col items-center text-center font-figtree bg-white pt-5 lg:pb-5"
     >
       <h2 className="text-2xl sm:text-4xl font-bold text-gray-950">
         Beyond Sweetness,
@@ -132,7 +132,7 @@ export default function BeyondSweetness() {
           ))}
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-4 py-2 sm:grid-cols-4 gap-8 bg-[#F1A79E] w-full max-w-4xl justify-items-center">
+      <div className="lg:hidden mt-10 grid grid-cols-4 py-2 sm:grid-cols-4 gap-8 bg-[#F1A79E] w-full lg:px-20 justify-items-center">
         {[
           {
             img: "/icons/farm-fresh.png",
@@ -151,7 +151,10 @@ export default function BeyondSweetness() {
             title: "Pure & Untouched",
           },
         ].map((item, i) => (
-          <div key={i} className="flex flex-col items-center text-center">
+          <div
+            key={i}
+            className="flex flex-col lg:px-20 items-center text-center"
+          >
             <Image
               src={item.img}
               alt={item.title}
@@ -167,4 +170,6 @@ export default function BeyondSweetness() {
       </div>
     </section>
   );
-}
+};
+
+export default BeyondSweetness;

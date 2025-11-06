@@ -8,12 +8,14 @@ import WelnessInEveryDrop from "./../components/WellnessInDrop/WelnessInEveryDro
 import WhatOurCustomerSays from "./../components/WhatCustomerSays/WhatOurCustomerSays";
 import UserGeneratedContent from "./../components/UserGeneratedContent/UserGeneratedContent";
 import BeyondSweetness from "./../components/BeyondSweetness/BeyondSweetness";
+import ShopByConcern from "./../components/ShopByConcern/ShopByConcern";
 
 export default function Home() {
   return (
     <>
       <HeroBanner />
       <FeatureStrip />
+      <ShopByConcern />
       <HoneyProductsHome />
       <WhyChooseMotherland />
       <Certifications />

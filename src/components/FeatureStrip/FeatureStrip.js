@@ -11,7 +11,7 @@ const features = [
   { icon: "/icons/organic.png", label: "100% ORGANIC" },
 ];
 
-export default function FeatureStrip() {
+const FeatureStrip = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,4 +59,5 @@ export default function FeatureStrip() {
       `}</style>
     </div>
   );
-}
+};
+export default FeatureStrip;

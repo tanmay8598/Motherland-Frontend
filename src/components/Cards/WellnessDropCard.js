@@ -2,7 +2,7 @@ import React from "react";
 
 const WellnessDropCard = ({ title, description, image }) => {
   return (
-    <div className="min-w-[290px] md:min-w-[300px] lg:min-w-[360px] bg-[#FFF1D9] rounded-xl shadow-sm flex flex-col justify-between items-start h-[370px]  py-5 text-left mx-3 overflow-hidden ">
+    <div className="min-w-[290px] md:min-w-[290px] lg:max-w-[290px] bg-[#FFF1D9] rounded-xl shadow-sm flex flex-col justify-between items-start h-[370px]  py-5 text-left mx-3 overflow-hidden ">
       <div className="px-6">
         <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
           {title}

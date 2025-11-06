@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const images = ["/images/bannerImage.png", "/images/bannerImage2.png"];
 
-export default function HeroBanner() {
+const HeroBanner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -31,15 +31,15 @@ export default function HeroBanner() {
               alt={`Banner ${index + 1}`}
               width={1080}
               height={600}
-              className="w-full h-[390px] sm:h-[390px] object-cover"
+              className="w-full h-[390px] sm:h-[390px] lg:h-[505px] object-cover"
               priority={index === 0}
             />
 
-            <div className="absolute top-20 right-2 w-[166px] h-[74px] flex items-center justify-center rounded-lg bg-[#97C0D6]/20 backdrop-blur-13">
+            {/* <div className="absolute top-20 right-2 w-[166px] h-[74px] flex items-center justify-center rounded-lg bg-[#97C0D6]/20 backdrop-blur-13">
               <p className="text-white font-semibold text-lg">
                 Fresh from farm
               </p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
@@ -59,4 +59,6 @@ export default function HeroBanner() {
       </div>
     </div>
   );
-}
+};
+
+export default HeroBanner;

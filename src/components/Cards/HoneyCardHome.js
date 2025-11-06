@@ -10,7 +10,7 @@ const HoneyCard = ({
   weight,
 }) => {
   return (
-    <div className="bg-[#FAFAF6] rounded-[20px]   overflow-hidden w-[172px] flex flex-col items-center ">
+    <div className="bg-[#FAFAF6] rounded-[20px]   overflow-hidden w-[172px] lg:w-60 flex flex-col items-center ">
       <img
         src={image}
         alt={title}

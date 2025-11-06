@@ -10,7 +10,7 @@ const CustomerReviewCard = ({
   oldPrice,
 }) => {
   return (
-    <div className="min-w-[330px] md:min-w-[320px] lg:min-w-[360px] bg-white rounded-lg flex flex-col justify-between items-start h-[280px] py-5 text-left mx-3 overflow-hidden px-6 snap-center">
+    <div className="min-w-[330px] md:min-w-[320px] lg:max-w-[384px] bg-white rounded-lg flex flex-col justify-between items-start h-[280px] py-5 text-left mx-3 overflow-hidden px-6 snap-center">
       <div>
         <div className="flex mb-2">
           {Array.from({ length: rating }, (_, i) => (

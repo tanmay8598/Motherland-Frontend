@@ -58,10 +58,10 @@ const WelnessInEveryDrop = () => {
         ingredients.
       </p>
 
-      <div className="relative w-full mt-10">
+      <div className="relative lg:mx-auto w-full mt-10">
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory px-4"
+          className="flex overflow-x-auto scroll-smooth lg:justify-center scrollbar-hide snap-x snap-mandatory px-4"
         >
           {cards.map((card, i) => (
             <WellnessDropCard

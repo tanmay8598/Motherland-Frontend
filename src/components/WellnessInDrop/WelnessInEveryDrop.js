@@ -22,6 +22,30 @@ const cards = [
       "Natural filtration removes impurities while keeping all the original nutrients intact.",
     image: "/wellnessImages/purity.png",
   },
+  {
+    title: "Filtered Without Processing",
+    description:
+      "Natural filtration removes impurities while keeping all the original nutrients intact.",
+    image: "/wellnessImages/purity.png",
+  },
+  {
+    title: "Filtered Without Processing",
+    description:
+      "Natural filtration removes impurities while keeping all the original nutrients intact.",
+    image: "/wellnessImages/purity.png",
+  },
+  {
+    title: "Filtered Without Processing",
+    description:
+      "Natural filtration removes impurities while keeping all the original nutrients intact.",
+    image: "/wellnessImages/purity.png",
+  },
+  {
+    title: "Filtered Without Processing",
+    description:
+      "Natural filtration removes impurities while keeping all the original nutrients intact.",
+    image: "/wellnessImages/purity.png",
+  },
 ];
 
 const WelnessInEveryDrop = () => {
@@ -58,10 +82,10 @@ const WelnessInEveryDrop = () => {
         ingredients.
       </p>
 
-      <div className="relative lg:mx-auto w-full mt-10">
+      <div className="relative lg:mx-auto lg:max-w-5xl   w-full mt-10">
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth lg:justify-center scrollbar-hide snap-x snap-mandatory px-4"
+          className="flex overflow-x-auto scroll-smooth  scrollbar-hide snap-x snap-mandatory px-4"
         >
           {cards.map((card, i) => (
             <WellnessDropCard
@@ -74,7 +98,11 @@ const WelnessInEveryDrop = () => {
         </div>
       </div>
 
-      {cards.length > 1 && <CustomProgressBar progress={scrollProgress} />}
+      {cards.length > 1 && (
+        <div className="lg:hidden">
+          <CustomProgressBar progress={scrollProgress} />
+        </div>
+      )}
     </section>
   );
 };

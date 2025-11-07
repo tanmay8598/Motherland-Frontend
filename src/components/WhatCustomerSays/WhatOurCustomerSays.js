@@ -37,6 +37,26 @@ const reviews = [
     price: 629,
     oldPrice: 799,
   },
+  {
+    name: "Aman Verma",
+    review:
+      "Finally found honey that feels genuine. The packaging, taste, and texture all show real quality. Highly recommend!",
+    rating: 4,
+    product: "Himalayan Raw Honey",
+    image: "/wellnessImages/purity.png",
+    price: 629,
+    oldPrice: 799,
+  },
+  {
+    name: "Aman Verma",
+    review:
+      "Finally found honey that feels genuine. The packaging, taste, and texture all show real quality. Highly recommend!",
+    rating: 4,
+    product: "Himalayan Raw Honey",
+    image: "/wellnessImages/purity.png",
+    price: 629,
+    oldPrice: 799,
+  },
 ];
 
 const WhatOurCustomerSays = () => {
@@ -67,7 +87,7 @@ const WhatOurCustomerSays = () => {
         What Our Customers Say
       </h2>
 
-      <div className="relative w-full  mt-10">
+      {/* <div className="relative lg:max-w-6xl w-full  mt-10">
         <button
           onClick={() => scroll("left")}
           className="flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2   rounded-full   z-10"
@@ -83,7 +103,7 @@ const WhatOurCustomerSays = () => {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory justify-center"
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory "
           style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
         >
           {reviews.map((item, i) => (
@@ -93,13 +113,51 @@ const WhatOurCustomerSays = () => {
 
         <button
           onClick={() => scroll("right")}
-          className="flex absolute right-2 sm:left-4 top-1/2 -translate-y-1/2   rounded-full   z-10"
+          className="flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 rounded-full z-10"
         >
           <Image
             src="/icons/right-arrow.png"
             alt="Next"
             width={35}
             height={35}
+            className="object-contain"
+          />
+        </button>
+      </div> */}
+
+      <div className="relative w-full lg:max-w-5xl mx-auto mt-10 flex items-center justify-center">
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 lg:-left-10 top-1/2 -translate-y-1/2 cursor-pointer  p-2 transition z-10"
+        >
+          <Image
+            src="/icons/left-arrow.png"
+            alt="Previous"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+        </button>
+
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scroll-smooth scrollbar-hide px-6 snap-x snap-mandatory"
+          style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+        >
+          {reviews.map((item, i) => (
+            <CustomerReviewCard key={i} {...item} />
+          ))}
+        </div>
+
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-0 lg:-right-10 top-1/2 -translate-y-1/2 cursor-pointer p-2 transition z-10"
+        >
+          <Image
+            src="/icons/right-arrow.png"
+            alt="Next"
+            width={28}
+            height={28}
             className="object-contain"
           />
         </button>

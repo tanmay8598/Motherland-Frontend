@@ -28,6 +28,30 @@ const products = [
     image: "/productImages/userGenerated2.png",
     subImage: "/productImages/userGeneratedSubImage.png",
   },
+  {
+    id: 3,
+    name: "Wild Forest Honey",
+    price: 599,
+    oldPrice: 749,
+    image: "/productImages/userGenerated2.png",
+    subImage: "/productImages/userGeneratedSubImage.png",
+  },
+  {
+    id: 3,
+    name: "Wild Forest Honey",
+    price: 599,
+    oldPrice: 749,
+    image: "/productImages/userGenerated2.png",
+    subImage: "/productImages/userGeneratedSubImage.png",
+  },
+  {
+    id: 3,
+    name: "Wild Forest Honey",
+    price: 599,
+    oldPrice: 749,
+    image: "/productImages/userGenerated2.png",
+    subImage: "/productImages/userGeneratedSubImage.png",
+  },
 ];
 
 const UserGeneratedContent = () => {
@@ -55,10 +79,11 @@ const UserGeneratedContent = () => {
   }, []);
 
   return (
-    <section className="bg-[#FFFAF0] py-5 lg:py-0 font-figtree">
+    <section className="bg-[#FFFAF0]  py-5 lg:py-0 font-figtree">
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto lg:justify-center scroll-smooth scrollbar-hide gap-6 px-8 mt-10 snap-x snap-mandatory"
+        className="flex overflow-x-auto lg:max-w-5xl mx-auto scroll-smooth scrollbar-hide gap-6 px-8 mt-10 snap-x snap-mandatory"
+        // className="flex overflow-x-auto scroll-smooth lg:justify-center scrollbar-hide snap-x snap-mandatory px-4"
       >
         {products.map((item) => (
           <div
@@ -101,43 +126,49 @@ const UserGeneratedContent = () => {
         ))}
       </div>
 
-      {products.length > 1 && <CustomProgressBar progress={scrollProgress} />}
+      {products.length > 1 && (
+        <div className="lg:hidden">
+          <CustomProgressBar progress={scrollProgress} />
+        </div>
+      )}
 
-      <div className="hidden mt-10 lg:grid grid-cols-4 py-2 sm:grid-cols-4 gap-8 bg-[#F1A79E] w-full lg:px-20 justify-items-center">
-        {[
-          {
-            img: "/icons/farm-fresh.png",
-            title: "Farm-Fresh Sourcing",
-          },
-          {
-            img: "/icons/bee-friendly.png",
-            title: "Bee-Friendly Practices",
-          },
-          {
-            img: "/icons/warm-extraction.png",
-            title: "Warm Extraction",
-          },
-          {
-            img: "/icons/pureuntouched.png",
-            title: "Pure & Untouched",
-          },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="flex flex-col lg:px-20 items-center text-center"
-          >
-            <Image
-              src={item.img}
-              alt={item.title}
-              width={50}
-              height={50}
-              className="object-contain"
-            />
-            <p className="mt-3 text-xs sm:text-base font-medium text-gray-900">
-              {item.title}
-            </p>
-          </div>
-        ))}
+      <div className="bg-[#F1A79E]">
+        <div className="hidden mt-10 lg:grid grid-cols-4 py-2 sm:grid-cols-4  max-w-3xl mx-auto w-full  justify-items-center">
+          {[
+            {
+              img: "/icons/farm-fresh.png",
+              title: "Farm-Fresh Sourcing",
+            },
+            {
+              img: "/icons/bee-friendly.png",
+              title: "Bee-Friendly Practices",
+            },
+            {
+              img: "/icons/warm-extraction.png",
+              title: "Warm Extraction",
+            },
+            {
+              img: "/icons/pureuntouched.png",
+              title: "Pure & Untouched",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col lg:px-10 items-center text-center"
+            >
+              <Image
+                src={item.img}
+                alt={item.title}
+                width={50}
+                height={50}
+                className="object-contain"
+              />
+              <p className="mt-3   text-xs md:text-lg font-medium text-gray-900">
+                {item.title}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

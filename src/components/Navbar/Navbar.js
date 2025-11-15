@@ -78,7 +78,7 @@ const Navbar = () => {
           {/* Home */}
           <button
             onClick={() => setActiveLink("Home")}
-            className={`relative  transition-colors ${
+            className={`relative  transition-colors cursor-pointer ${
               activeLink === "Home"
                 ? "text-[#1A3232] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-[#1A3232]"
                 : "text-[#1A3232BF] hover:text-[#1A3232]"
@@ -90,7 +90,7 @@ const Navbar = () => {
           <div className="relative group">
             <button
               onClick={() => setActiveLink("Shop")}
-              className={`flex items-center gap-1  transition-colors ${
+              className={`flex items-center gap-1  transition-colors cursor-pointer ${
                 activeLink === "Shop"
                   ? "text-[#1A3232] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-[#1A3232]"
                   : "text-[#1A3232BF] hover:text-[#1A3232]"
@@ -124,7 +124,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setActiveLink("About Us")}
-            className={`relative  transition-colors ${
+            className={`relative  transition-colors cursor-pointer ${
               activeLink === "About Us"
                 ? "text-[#1A3232] after:absolute after:left-0 after:bottom-0 after:w-full after:h-0.5 after:bg-[#1A3232]"
                 : "text-[#1A3232BF] hover:text-[#1A3232]"

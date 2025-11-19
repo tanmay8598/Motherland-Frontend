@@ -9,6 +9,7 @@ import WhatOurCustomerSays from "./../components/WhatCustomerSays/WhatOurCustome
 import UserGeneratedContent from "./../components/UserGeneratedContent/UserGeneratedContent";
 import BeyondSweetness from "./../components/BeyondSweetness/BeyondSweetness";
 import ShopByConcern from "./../components/ShopByConcern/ShopByConcern";
+import UnicornEmbed from "./../components/Animation/UnicornEmbed";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <WhatOurCustomerSays />
       <UserGeneratedContent />
       <BeyondSweetness />
+      <UnicornEmbed />
     </>
   );
 }

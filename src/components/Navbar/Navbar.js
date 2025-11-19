@@ -2,10 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useCartStore } from "@/stores/cartStore";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
+  const cartCount = useCartStore((state) =>
+    state.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white font-figtree shadow-sm z-50">
@@ -13,7 +17,7 @@ const Navbar = () => {
       <div className="flex lg:hidden items-center justify-between px-4 py-3 h-16">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 focus:outline-none"
+          className="p-2 focus:outline-none cursor-pointer"
         >
           <Image src="/icons/hamburger.png" alt="Menu" width={24} height={24} />
         </button>
@@ -37,8 +41,15 @@ const Navbar = () => {
               height={24}
             />
           </button>
-          <button className="p-2">
-            <Image src="/icons/cart.png" alt="Bag" width={24} height={24} />
+
+          <button className="p-2 relative">
+            <Image src="/icons/cart2.png" alt="Bag" width={24} height={24} />
+
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] px-1.5 py-0.5 rounded-full">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -70,12 +81,11 @@ const Navbar = () => {
             alt="Motherland Logo"
             width={160}
             height={50}
-            className="object-contain"
+            className="object-contain cursor-pointer"
           />
         </div>
 
         <nav className="flex items-center space-x-10 text-gray-800 font-medium">
-          {/* Home */}
           <button
             onClick={() => setActiveLink("Home")}
             className={`relative  transition-colors cursor-pointer ${
@@ -135,7 +145,7 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-6">
-          <button>
+          <button className="cursor-pointer">
             <Image
               src="/icons/search.png"
               alt="Search"
@@ -143,11 +153,18 @@ const Navbar = () => {
               height={24}
             />
           </button>
-          <button>
+          <button className="cursor-pointer">
             <Image src="/icons/user.png" alt="User" width={24} height={24} />
           </button>
-          <button>
-            <Image src="/icons/cart.png" alt="Cart" width={24} height={24} />
+
+          <button className="relative cursor-pointer">
+            <Image src="/icons/cart2.png" alt="Cart" width={24} height={24} />
+
+            {cartCount > 0 && (
+              <span className="absolute -top-3 -right-3   bg-red-600 text-white text-[10px] px-1.5 py-0.5 rounded-full">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
       </div>

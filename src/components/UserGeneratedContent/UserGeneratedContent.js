@@ -29,7 +29,7 @@ const products = [
     subImage: "/productImages/userGeneratedSubImage.png",
   },
   {
-    id: 3,
+    id: 4,
     name: "Wild Forest Honey",
     price: 599,
     oldPrice: 749,
@@ -37,7 +37,7 @@ const products = [
     subImage: "/productImages/userGeneratedSubImage.png",
   },
   {
-    id: 3,
+    id: 5,
     name: "Wild Forest Honey",
     price: 599,
     oldPrice: 749,
@@ -45,7 +45,7 @@ const products = [
     subImage: "/productImages/userGeneratedSubImage.png",
   },
   {
-    id: 3,
+    id: 6,
     name: "Wild Forest Honey",
     price: 599,
     oldPrice: 749,

@@ -1,4 +1,5 @@
 import React from "react";
+import { useCartStore } from "@/stores/cartStore";
 
 const HoneyCard = ({
   image,
@@ -9,6 +10,16 @@ const HoneyCard = ({
   newPrice,
   weight,
 }) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const productData = {
+    id: title,
+    image,
+    title,
+    price: newPrice,
+    weight,
+  };
+
   return (
     <div className="bg-[#FAFAF6] rounded-[20px]   overflow-hidden w-[172px] lg:w-60 flex flex-col items-center ">
       <img
@@ -48,8 +59,11 @@ const HoneyCard = ({
 
         <p className="text-sm text-gray-600 font-medium mt-1">{weight}</p>
 
-        <button className="bg-[#E56A5C] text-white font-semibold w-full py-2 h-9 rounded-full text-sm mt-3">
-          VIEW PRODUCT
+        <button
+          onClick={() => addToCart(productData)}
+          className="bg-[#E56A5C] cursor-pointer text-white font-semibold w-full py-2 h-9 rounded-full text-sm mt-3"
+        >
+          ADD TO CART
         </button>
       </div>
     </div>

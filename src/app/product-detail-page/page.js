@@ -10,8 +10,10 @@ import CustomerReview from "./../../components/CustomerReview/CustomerReview";
 function page() {
   return (
     <div>
-      <ProductImageViewer />
-      <ProductDetails />
+      <div className="flex flex-col lg:flex-row">
+        <ProductImageViewer />
+        <ProductDetails />
+      </div>
       <PureTestedFeatureAndDetails />
       <YouMightAlsoLike />
       <CustomerReview />

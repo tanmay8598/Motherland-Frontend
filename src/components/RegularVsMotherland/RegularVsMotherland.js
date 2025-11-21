@@ -132,7 +132,6 @@ const ComparisonSlider = () => {
         ref={containerRef}
         className="relative w-full h-[420px] md:h-[400px] rounded-xl overflow-hidden"
       >
-        {/* LEFT SIDE */}
         <div
           className="absolute inset-0 z-20 pointer-events-none"
           style={{
@@ -177,7 +176,6 @@ const ComparisonSlider = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
@@ -222,7 +220,6 @@ const ComparisonSlider = () => {
           </div>
         </div>
 
-        {/* SLIDER HANDLE */}
         <div
           onMouseDown={startDrag}
           onTouchStart={startDrag}

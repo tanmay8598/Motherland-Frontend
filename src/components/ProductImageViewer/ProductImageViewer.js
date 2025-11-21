@@ -29,8 +29,8 @@ const ProductImageViewer = () => {
   };
 
   return (
-    <div className="w-full flex flex-col px-4 my-5 items-center">
-      <div className="w-full max-w-md lg:w-full h-80 sm:h-[420px] bg-[#FFFAF0] flex items-center justify-center ">
+    <div className="w-full flex flex-col px-4 mt-5 items-center">
+      <div className="w-full   lg:w-full h-80 sm:h-[420px] bg-[#FFFAF0] flex items-center justify-center ">
         <Image
           src={images[index]}
           alt="Product image"
@@ -41,7 +41,7 @@ const ProductImageViewer = () => {
       </div>
 
       <div className="mt-4 w-full max-w-md flex items-center  justify-center gap-3">
-        <button onClick={prevImg}>
+        {/* <button onClick={prevImg}>
           <Image
             src="/icons/left-icon.png"
             alt="left arrow"
@@ -49,11 +49,11 @@ const ProductImageViewer = () => {
             height={40}
             className="object-contain"
           />
-        </button>
+        </button> */}
 
         <div
           ref={scrollRef}
-          className="flex gap-3 overflow-x-auto hide-scrollbar scroll-smooth px-2"
+          className="flex gap-3 overflow-x-auto scrollbar-hide  scroll-smooth px-2"
         >
           {images.map((img, i) => (
             <button
@@ -74,7 +74,7 @@ const ProductImageViewer = () => {
           ))}
         </div>
 
-        <button onClick={nextImg}>
+        {/* <button onClick={nextImg}>
           <Image
             src="/icons/right-icon2.png"
             alt="right arrow"
@@ -82,7 +82,7 @@ const ProductImageViewer = () => {
             height={40}
             className="object-contain"
           />
-        </button>
+        </button> */}
       </div>
     </div>
   );

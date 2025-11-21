@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+import apiClient from "./../../api/client";
+
 const images = ["/images/bannerImage.png", "/images/bannerImage2.png"];
 
 const HeroBanner = () => {
@@ -17,6 +19,15 @@ const HeroBanner = () => {
 
     return () => clearInterval(interval);
   }, []);
+  useEffect(() => {
+    getBannerImages();
+  }, []);
+
+  const getBannerImages = async () => {
+    console.log("hti");
+    const response = await apiClient.get("/variation/banner/get");
+    console.log("get images", response);
+  };
 
   return (
     <div className="relative w-full overflow-hidden">

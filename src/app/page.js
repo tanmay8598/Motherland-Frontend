@@ -25,7 +25,7 @@ export default function Home() {
       <WhatOurCustomerSays />
       <UserGeneratedContent />
       <BeyondSweetness />
-      <UnicornEmbed />
+      {/* <UnicornEmbed /> */}
     </>
   );
 }

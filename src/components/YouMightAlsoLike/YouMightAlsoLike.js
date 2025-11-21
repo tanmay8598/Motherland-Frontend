@@ -23,6 +23,15 @@ const YouMightAlsoLike = () => {
       newPrice: 549,
       weight: "250g",
     },
+    {
+      image: "/productImages/honey1.png",
+      title: "Acacia Honey",
+      reviews: 2807,
+      description: "Infused with real orange peel, bright & refreshing",
+      oldPrice: 699,
+      newPrice: 549,
+      weight: "250g",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -7,14 +7,14 @@ function FAQItem({ question, answer }) {
 
   return (
     <div
-      className="bg-white rounded-xl px-5 py-4  border border-[#C7C7C7] font-figtree cursor-pointer transition-all"
+      className="bg-white rounded-xl px-5 py-4  border border-[#EDCD92] font-figtree cursor-pointer transition-all"
       onClick={() => setOpen(!open)}
     >
       <div className="flex justify-between items-center">
         <p className="text-lg font-semibold text-[#1A3232]">{question}</p>
 
         <Image
-          src={open ? "/icons/chevron-up.png" : "/icons/haha.png"}
+          src={open ? "/icons/icon-up.png" : "/icons/icon-down.png"}
           alt="toggle"
           width={13}
           height={9}
@@ -60,15 +60,17 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-5  py-10 font-figtree">
-      <h2 className="text-center text-2xl font-bold mb-8">
-        Frequently Asked Questions (FAQs)
-      </h2>
+    <div className="w-full   mx-auto px-5 bg-[#FFF9F2]  py-10 font-figtree">
+      <div className="max-w-3xl mx-auto ">
+        <h2 className="text-center text-2xl font-bold mb-8">
+          Frequently Asked Questions (FAQs)
+        </h2>
 
-      <div className="flex flex-col gap-4">
-        {faqs.map((item, index) => (
-          <FAQItem key={index} question={item.q} answer={item.a} />
-        ))}
+        <div className="flex flex-col gap-4">
+          {faqs.map((item, index) => (
+            <FAQItem key={index} question={item.q} answer={item.a} />
+          ))}
+        </div>
       </div>
     </div>
   );

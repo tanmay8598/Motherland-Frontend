@@ -25,7 +25,7 @@ const ClientOnly = ({ children }) => {
   return (
     <>
       <MobileNavbar />
-      <main className="relative overflow-hidden mt-8">
+      <main className="relative overflow-hidden mt-16 lg:mt-20">
         {children}
 
         <ScrollToTop />

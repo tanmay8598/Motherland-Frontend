@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useCartStore } from "@/stores/cartStore";
 
-const Navbar = () => {
+const Navbar = ({ setOpen }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Home");
   const cartCount = useCartStore((state) =>
@@ -153,7 +153,7 @@ const Navbar = () => {
               height={24}
             />
           </button>
-          <button className="cursor-pointer">
+          <button onClick={() => setOpen(true)} className="cursor-pointer">
             <Image src="/icons/user.png" alt="User" width={24} height={24} />
           </button>
 

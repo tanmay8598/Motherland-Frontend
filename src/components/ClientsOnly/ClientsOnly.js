@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import MobileNavbar from "./../Navbar/Navbar";
 import ScrollToTop from "./../ScrollToTop/ScrollToTop";
 import Footer from "./../Footer/Footer";
+import OtpLoginModal from "../Modals/OTPLoginModal";
+import Modal from "../Modals/Modal";
 
 const ClientOnly = ({ children }) => {
   const [user, setUser] = useState();
@@ -22,12 +24,18 @@ const ClientOnly = ({ children }) => {
   //   restoreUser();
   // }, []);
 
+  const [open, setOpen] = useState(false)
+
+  console.log("open", open)
+
   return (
     <>
-      <MobileNavbar />
+      <MobileNavbar setOpen={setOpen} />
       <main className="relative overflow-hidden mt-16 lg:mt-20">
         {children}
-
+        <Modal isOpen={open} onClose={() => setOpen(false)}>
+          <OtpLoginModal />
+        </Modal>
         <ScrollToTop />
       </main>
       <Footer />

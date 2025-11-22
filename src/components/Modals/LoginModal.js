@@ -5,13 +5,15 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { MdOutlineMail } from "react-icons/md";
 import apiClient from "@/api/client";
+import toast from "react-hot-toast";
 
-export default function OtpLoginModal() {
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
+export default function LoginModal({ mobile, setMobile, email, setEmail, setOpen, setIsVerificationModalOpen, isEmailMode, setIsEmailMode }) {
+  // const [mobile, setMobile] = useState("");
+  // const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState("");
-  const [isEmailMode, setIsEmailMode] = useState(false);
-  const [isOtpStep, setIsOtpStep] = useState(false)
+  
+  
 
   const handleMobileChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -37,6 +39,7 @@ export default function OtpLoginModal() {
     const url = `/user/${isEmailMode ? "login-with-email" : "login-with-mobile"}`
     console.log("url", url)
     try {
+      setLoading(true)
       const response = await apiClient.post(url, {
         [isEmailMode ? "email" : "mobile"]: isEmailMode ? email : mobile,
       })
@@ -45,14 +48,20 @@ export default function OtpLoginModal() {
         // setError(response?.data?.message)
         return
       }
-      setIsOtpStep(true)
-      if(isEmailMode) {
-        setEmail("")
-      } else {
-        setMobile("")
-      }
+      // toast.success(i18n?.language === "en" ? response?.data?.message?.en : response?.data?.message?.ar)
+      toast.success(response?.data?.message)
+      setOpen(false)
+      setIsVerificationModalOpen(true)
+      // if(isEmailMode) {
+      //   setEmail("")
+      // } else {
+      //   setMobile("")
+      // }
     } catch (error) {
+      toast.error(error?.message)
       console.log("Failed to send OTP")
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -125,7 +134,7 @@ export default function OtpLoginModal() {
         <button
           onClick={handleSendOtp}
           disabled={isDisabled}
-          className={`w-full text-white py-3 rounded-xl font-semibold shadow-md transition bg-gradient-to-r from-primary-400 to-secondary-300 ${
+          className={`w-full text-white py-3 rounded-xl hover:cursor-pointer font-semibold shadow-md transition bg-gradient-to-r from-primary-400 to-secondary-300 ${
             !isDisabled
               ? "hover:scale-[1.01] hover:shadow-lg cursor-pointer"
               : "opacity-60 cursor-not-allowed"

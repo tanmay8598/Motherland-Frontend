@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 
 const useAuth = () => {
   const { user, setUser } = useContext(AuthContext);
-
+  console.log("user", user)
   const logIn = (authToken) => {
     const user = jwtDecode(authToken);
     setUser(user);

@@ -1,6 +1,7 @@
 import { Figtree } from "next/font/google";
 import "./globals.css";
 import ClientOnly from "./../components/ClientsOnly/ClientsOnly";
+import toast, { Toaster } from 'react-hot-toast';
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${figtree.variable}`}>
       <body>
         <ClientOnly>{children}</ClientOnly>
+        <Toaster />
       </body>
     </html>
   );
